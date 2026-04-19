@@ -1,0 +1,146 @@
+Here are clean, exam-ready answers:
+
+
+---
+
+Q1. Write a python code to create a list of 10 integers. Display square of all elements using lambda with map()
+
+[10 Marks]
+
+# Q1 Solution
+
+# Create list of 10 integers
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Use lambda with map to calculate squares
+squares = list(map(lambda x: x**2, numbers))
+
+print("Original List:", numbers)
+print("Squares of elements:", squares)
+
+
+---
+
+Q2. Create a Flask application to add and view tasks using PostgreSQL
+
+[20 Marks]
+
+Step 1: Install required packages
+
+pip install flask psycopg2
+
+
+---
+
+Step 2: Database Setup (PostgreSQL)
+
+CREATE DATABASE taskdb;
+
+\c taskdb
+
+CREATE TABLE tasks (
+    id SERIAL PRIMARY KEY,
+    task_name TEXT
+);
+
+
+---
+
+Step 3: app.py
+
+from flask import Flask, render_template, request
+import psycopg2
+
+app = Flask(__name__)
+
+# Database connection
+conn = psycopg2.connect(
+    database="taskdb",
+    user="postgres",
+    password="yourpassword",
+    host="localhost",
+    port="5432"
+)
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        task = request.form['task_name']
+        cur.execute("INSERT INTO tasks (task_name) VALUES (%s)", (task,))
+        conn.commit()
+
+    cur.execute("SELECT * FROM tasks")
+    tasks = cur.fetchall()
+
+    cur.close()
+
+    return render_template("index.html", tasks=tasks)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+---
+
+Step 4: templates/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+</head>
+<body>
+
+    <h1>Task Manager</h1>
+
+    <form method="POST">
+        <input type="text" name="task_name" placeholder="Enter task" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>Task List</h2>
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task[1] }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
+
+
+---
+
+OR
+
+Q2. Write a Python program to process string and find words without vowels
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+string = input("Enter a string: ")
+
+# Split into words
+words = string.split()
+
+vowels = "aeiouAEIOU"
+
+# Find words without vowels
+result = [word for word in words if not any(char in vowels for char in word)]
+
+# Sort words alphabetically
+result.sort()
+
+print("Words without vowels (sorted):")
+print(result)
+
+# Count
+print("Total count:", len(result))
+
+
+---
+
+If you want, I can also give important viva questions from Flask + Python (very useful for exams).
