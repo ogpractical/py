@@ -1,0 +1,117 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Write a Python program to demonstrate time module functions
+
+[10 Marks]
+
+# Q1 Solution
+
+import time
+
+# Get current time in seconds
+seconds = time.time()
+print("Current time in seconds:", seconds)
+
+# a) Convert seconds to struct_time in UTC
+utc_time = time.gmtime(seconds)
+print("\nUTC struct_time:", utc_time)
+
+# b) Convert struct_time to formatted string
+formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", utc_time)
+print("Formatted UTC time:", formatted_time)
+
+
+---
+
+Q2. Create a Web Page using Flask for Library Book List
+
+[20 Marks]
+
+Step 1: app.py
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    library_name = "My Library"
+
+    books = [
+        {"title": "Python Basics", "author": "John Doe"},
+        {"title": "Data Structures", "author": "Jane Smith"},
+        {"title": "Algorithms", "author": "Alice Brown"}
+    ]
+
+    quote = "Reading is to the mind what exercise is to the body."
+
+    return render_template("index.html",
+                           library_name=library_name,
+                           books=books,
+                           quote=quote)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+---
+
+Step 2: templates/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library</title>
+</head>
+<body>
+
+    <h1>{{ library_name }}</h1>
+
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p style="color: blue;"><b>{{ quote }}</b></p>
+
+</body>
+</html>
+
+
+---
+
+OR
+
+Q2. Write a python program to check whether a given URL is valid or not
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+import re
+
+url = input("Enter URL: ")
+
+# Regular expression for URL validation
+pattern = r'^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}'
+
+if re.match(pattern, url):
+    print("Valid URL")
+else:
+    print("Invalid URL")
+
+
+---
+
+If you want, I can also give important regex patterns (very useful for exams) or Flask viva questions.
