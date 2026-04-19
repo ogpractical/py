@@ -1,0 +1,106 @@
+Here are clean, exam-ready answers:
+
+
+---
+
+Q1. List all files and folders in current directory using os.listdir()
+
+[10 Marks]
+
+# Q1 Solution
+
+import os
+
+# Get current directory
+path = os.getcwd()
+
+# List all files and folders
+items = os.listdir(path)
+
+print("Files and folders in current directory:\n")
+
+for item in items:
+    print(item)
+
+
+---
+
+Q2. Validate mobile number using given criteria
+
+[20 Marks]
+
+# Q2 Solution
+
+import re
+
+mobile = input("Enter mobile number: ")
+
+# Pattern explanation:
+# ^(0|91)?  → optional 0 or 91 at beginning
+# [6-9]     → first digit between 6–9
+# [0-9]{9}$ → remaining 9 digits
+
+pattern = r'^(0|91)?[6-9][0-9]{9}$'
+
+if re.match(pattern, mobile):
+    print("Valid mobile number")
+else:
+    print("Invalid mobile number")
+
+
+---
+
+OR
+
+Q2. Create package education with subpackage courses
+
+[20 Marks]
+
+Step 1: Package Structure
+
+education/
+    __init__.py
+    courses/
+        __init__.py
+        science.py
+        arts.py
+
+
+---
+
+Step 2: science.py
+
+# science.py
+
+def get_subjects():
+    return ["Physics", "Chemistry", "Biology"]
+
+
+---
+
+Step 3: arts.py
+
+# arts.py
+
+def get_subjects():
+    return ["History", "Geography", "Political Science"]
+
+
+---
+
+Step 4: Main Program
+
+# main.py
+
+from education.courses import science, arts
+
+print("Science Subjects:")
+print(science.get_subjects())
+
+print("\nArts Subjects:")
+print(arts.get_subjects())
+
+
+---
+
+If you want, I can prepare a **1-page cheat sheet (all important regex + file handling + packages)** for quick revision.
