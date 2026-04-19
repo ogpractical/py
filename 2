@@ -1,0 +1,100 @@
+Slip 2nd
+
+
+#Q1  Write a python program to accept a string, Count total number of vowels, consonants and special symbols from it. 
+
+str1 = input("Enter a string: ")
+vowels = 0
+consonants = 0
+special = 0
+for ch in str1:
+    if ch.isalpha():
+        if ch.lower() in 'aeiou':
+            vowels += 1
+        else:
+            consonants += 1
+    else:
+        special += 1 
+print("Total Vowels =", vowels)
+print("Total Consonants =", consonants)
+print("Total Special Symbols =", special)
+
+
+Q2. Consider the following record in Data frame IPL
+
+import pandas as pd
+import numpy as np
+
+data = {
+    'Player': ['Hardik Pandya', 'K L Rahul', 'Andre Russel',
+               'Jasprit Bumrah', 'Virat Kohli', 'Rohit Sharma'],
+    
+    'Team': ['Mumbai Indians', 'Kings Eleven', 'Kolkata Knight Riders',
+             'Mumbai Indians', 'RCB', 'Mumbai Indians'],
+    
+    'Category': ['Batsman', 'Batsman', 'Batsman',
+                 'Bowler', 'Batsman', 'Batsman'],
+    
+    'BidPrice': [13, 12, np.nan, 10, 17, np.nan],
+    
+    'Runs': [1000, 2400, 900, 200, 3600, 3700]
+}
+
+IPL = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(IPL)
+
+a) Retrieve first 2 rows
+print("\nFirst 2 Rows:")
+print(IPL.head(2))
+
+b) Retrieve last 3 rows
+print("\nLast 3 Rows:")
+print(IPL.tail(3))
+
+C) Check null values present in DataFrame. 
+print("\nNull Values:")
+print(IPL.isnull())
+
+d) Replace null value with mean of that column.
+IPL['BidPrice'].fillna(IPL['BidPrice'].mean(), inplace=True)
+
+print("\nAfter Replacing Null Values:")
+print(IPL)
+
+e)find most expensive player. 
+print("\nMost Expensive Player:")
+print(IPL.loc[IPL['BidPrice'].idxmax()])
+
+f)Print total players per team. 
+print("\nTotal Players Per Team:")
+print(IPL['Team'].value_counts())
+
+*OR*
+
+Q2. Write a Python program to demonstrate a user-defined exception that checks whether the entered marks are between 0 and 100. Display an appropriate message for invalid input and out-of-range values. Also display Grade of marks.
+
+
+class InvalidMarksError(Exception):
+    pass
+try:
+    marks = int(input("Enter marks: "))
+    if marks < 0 or marks > 100:
+        raise InvalidMarksError("Marks should be between 0 and 100.")
+    if marks >= 75:
+        grade = "A"
+    elif marks >= 60:
+        grade = "B"
+    elif marks >= 50:
+        grade = "C"
+    elif marks >= 35:
+        grade = "D"
+    else:
+        grade = "Fail"
+    print("Marks =", marks)
+    print("Grade =", grade)
+except ValueError:
+    print("Invalid input! Please enter numeric value.")
+except InvalidMarksError as e:
+    print("Error:", e)
