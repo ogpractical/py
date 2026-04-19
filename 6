@@ -1,0 +1,100 @@
+*Slip 6*
+
+Q1. Write a Python program that prompts the user to input two numbers and raises a TypeError exception if the inputs are not numerical.  
+
+
+try:
+    num1 = input("Enter first number: ")
+    num2 = input("Enter second number: ")
+    if not num1.replace('.', '', 1).isdigit() or not num2.replace('.', '', 1).isdigit():
+        raise TypeError("Inputs must be numerical values")
+    num1 = float(num1)
+    num2 = float(num2)
+    print("First Number =", num1)
+    print("Second Number =", num2)
+except TypeError as e:
+    print("Error:", e)
+
+
+Q2. Create a following DataFrame named as “data”. Write the python code for the following 
+import pandas as pd
+data = {
+    'Item': ['Pencil', 'Pencil', 'Pen', 'Pen', 'Eraser'],
+    'Company': ['Apsara', 'Natraj', 'Cello', 'Parkar', 'Apsara'],
+    'Count': [15, 20, 25, 35, 20],
+    'Price': [250, 200, 600, 900, 300]
+}
+
+df = pd.DataFrame(data)
+df.set_index('Item', inplace=True)
+
+print("Original DataFrame:")
+print(df)
+
+a) Find all rows with the label “Pencil”. Extract all columns 
+
+print("\n(a) Rows with label Pencil:")
+print(df.loc['Pencil'])
+
+
+b) Change the count of Eraser as 25 instead of 20. 
+
+df.loc['Eraser', 'Count'] = 25
+print("\n(b) After changing Eraser count:")
+print(df)
+
+
+c) List only the columns Company and Price. 
+
+print("\n(c) Company and Price columns:")
+print(df[['Company', 'Price']])
+
+
+d) List only rows with labels ‘Pencil’ and ‘Pen’ 
+
+print("\n(d) Rows with labels Pencil and Pen:")
+print(df.loc[['Pencil', 'Pen']])
+
+e) Delete column Count from the above DataFrame and display DataFrame..
+
+df.drop('Count', axis=1, inplace=True)
+print("\n(e) After deleting Count column:")
+print(df)
+
+
+*Or*
+
+Q2. Create a Web Page using Flask which contains following information about your Personal Portfolio Page a) Show your name as a centered heading. b) List your Qualification details. c) Add your special skill in scrolling.
+
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def portfolio():
+    return """
+    <html>
+    <head>
+        <title>Personal Portfolio</title>
+    </head>
+    <body>
+        <!-- Centered Heading -->
+        <h1 align="center">Sarthak More</h1>
+
+        <!-- Qualification Details -->
+        <h2>Qualification Details:</h2>
+        <ul>
+            <li>10th Pass</li>
+            <li>12th Pass</li>
+            <li>B.Sc Computer Science</li>
+        </ul>
+
+        <!-- Scrolling Skill -->
+        <marquee behavior="scroll" direction="left">
+            Special Skill: Python Programming | Web Development | Communication Skill
+        </marquee>
+
+    </body>
+    </html>
+    """
+
+if __name__ == '__main__':
+    app.run(debug=True)
