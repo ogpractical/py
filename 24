@@ -1,0 +1,117 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Extract numbers from a given string and display them
+
+[10 Marks]
+
+# Q1 Solution
+
+import re
+
+string = input("Enter a string: ")
+
+# Extract numbers using regex
+numbers = re.findall(r'\d+', string)
+
+print("Extracted numbers:", numbers)
+
+
+---
+
+Q2. Program to calculate pass/fail status of students
+
+[20 Marks]
+
+# Q2 Solution
+
+# Function to check pass/fail
+def check_pass_fail(marks):
+    if marks >= 40:
+        return "Pass"
+    else:
+        return "Fail"
+
+# Input number of students
+n = int(input("Enter number of students: "))
+
+pass_count = 0
+fail_count = 0
+
+# Loop for each student
+for i in range(n):
+    marks = int(input(f"Enter marks for student {i+1}: "))
+    
+    result = check_pass_fail(marks)
+    print(f"Student {i+1}: {result}")
+    
+    if result == "Pass":
+        pass_count += 1
+    else:
+        fail_count += 1
+
+# Display totals
+print("\nTotal Passed:", pass_count)
+print("Total Failed:", fail_count)
+
+
+---
+
+OR
+
+Q2. Flask Web Page for College Information
+
+[20 Marks]
+
+Step 1: app.py
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    college_name = "ABC College"
+
+    courses = ["BSc Computer Science", "BCom", "BA", "BCA"]
+
+    return render_template("index.html",
+                           college_name=college_name,
+                           courses=courses)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+---
+
+Step 2: templates/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College</title>
+</head>
+<body>
+
+    <h1 style="text-align:center;">{{ college_name }}</h1>
+
+    <h2>Courses Available:</h2>
+    <ul>
+        {% for course in courses %}
+        <li>{{ course }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>College Image:</h2>
+    <img src="https://via.placeholder.com/300" alt="College Image">
+
+</body>
+</html>
+
+
+---
+
+If you want, I can prepare a **super-short revision sheet (just patterns you need to memorize)** before your exam.
