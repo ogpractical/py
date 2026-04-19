@@ -1,0 +1,100 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Write a python program to accept a string and substring. Check if substring is present at the beginning using RE module.
+
+[10 Marks]
+
+# Q1 Solution
+
+import re
+
+string = input("Enter main string: ")
+substring = input("Enter substring: ")
+
+# Check if substring is at beginning using regex (^ indicates start)
+pattern = "^" + re.escape(substring)
+
+if re.match(pattern, string):
+    print("Substring is present at the beginning of the string.")
+else:
+    print("Substring is NOT present at the beginning of the string.")
+
+
+---
+
+Q2. Write a Python program to read file from a given byte position
+
+[20 Marks]
+
+# Q2 Solution
+
+filename = input("Enter file name: ")
+position = int(input("Enter byte position: "))
+
+try:
+    with open(filename, 'r') as file:
+        file.seek(position)   # Move pointer to given byte position
+        
+        content = file.read() # Read from that position till end
+        
+        print("\nContent from given position:\n")
+        print(content)
+
+except FileNotFoundError:
+    print("Error: File does not exist!")
+
+except ValueError:
+    print("Error: Invalid input!")
+
+
+---
+
+OR
+
+Q2. Create module variables.py and use it
+
+[20 Marks]
+
+Step 1: variables.py
+
+# variables.py
+
+def factorial(n):
+    fact = 1
+    for i in range(1, n+1):
+        fact *= i
+    return fact
+
+# Power dictionary (n : n^2)
+power = {i: i**2 for i in range(1, 11)}
+
+# Vowels list
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+
+---
+
+Step 2: Main Program
+
+# main.py
+
+import variables
+
+n = int(input("Enter a number: "))
+
+print("Factorial =", variables.factorial(n))
+
+if n in variables.power:
+    print("Power (square) =", variables.power[n])
+else:
+    print("Number not in power dictionary")
+
+print("Second vowel =", variables.vowels[1])
+
+
+---
+
+If you want, I can make a **last-day revision sheet (only important patterns + code templates)** to help you score quickly.
