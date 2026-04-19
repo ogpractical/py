@@ -1,0 +1,88 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Generate random radius and compute circumference of a circle
+
+[10 Marks]
+
+# Q1 Solution
+
+import random
+import math
+
+# Generate random radius between 1 and 10
+radius = random.randint(1, 10)
+
+# Calculate circumference (2 * π * r), π = 3.14
+circumference = 2 * 3.14 * radius
+
+print("Random Radius:", radius)
+print("Circumference of circle:", circumference)
+
+
+---
+
+Q2. Validate password based on given criteria
+
+[20 Marks]
+
+# Q2 Solution
+
+import re
+
+password = input("Enter password: ")
+
+# Regex pattern:
+# At least one lowercase letter, one digit, one special char ($#@)
+# Length between 6 and 12
+
+pattern = r'^(?=.*[a-z])(?=.*[0-9])(?=.*[$#@]).{6,12}$'
+
+if re.match(pattern, password):
+    print("Valid Password")
+else:
+    print("Invalid Password")
+
+
+---
+
+OR
+
+Q2. List files in directory, count .py files and display content of one file
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+import os
+
+# Get current directory
+path = os.getcwd()
+
+# List all files
+files = os.listdir(path)
+
+print("Files in current directory:\n")
+for f in files:
+    print(f)
+
+# Count .py files
+py_files = [f for f in files if f.endswith('.py')]
+print("\nTotal .py files:", len(py_files))
+
+# Display content of one .py file
+if py_files:
+    filename = py_files[0]
+    print(f"\nDisplaying content of {filename}:\n")
+    
+    with open(filename, 'r') as file:
+        print(file.read())
+else:
+    print("No .py files found.")
+
+
+---
+
+If you want, I can prepare a **last-day cheat sheet (only 15–20 important programs)** so you can revise quickly.
