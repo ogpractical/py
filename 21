@@ -1,0 +1,121 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Create a DataFrame from dictionary and display first 5 and last 5 rows
+
+[10 Marks]
+
+# Q1 Solution
+
+import pandas as pd
+
+# Create dictionary
+data = {
+    "Subject_Name": ["Maths", "Physics", "Chemistry", "Biology", "English",
+                     "History", "Geography", "Computer", "Economics", "Hindi"],
+    "Marks": [85, 78, 82, 88, 75, 80, 77, 90, 84, 79]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Display DataFrame
+print("DataFrame:\n", df)
+
+# First 5 rows
+print("\nFirst 5 rows:\n", df.head())
+
+# Last 5 rows
+print("\nLast 5 rows:\n", df.tail())
+
+
+---
+
+Q2. File handling: display contents and count characters, words, lines
+
+[20 Marks]
+
+# Q2 Solution
+
+filename = input("Enter file name: ")
+
+try:
+    with open(filename, 'r') as file:
+        content = file.read()
+
+        print("\nFile Contents:\n")
+        print(content)
+
+        # Count characters (including spaces)
+        char_count = len(content)
+
+        # Count words
+        word_count = len(content.split())
+
+        # Count lines
+        line_count = content.count('\n') + 1
+
+        print("\nNumber of characters:", char_count)
+        print("Number of words:", word_count)
+        print("Number of lines:", line_count)
+
+except FileNotFoundError:
+    print("Error: File does not exist!")
+
+
+---
+
+OR
+
+Q2. Create package banking with account.py and loan.py
+
+[20 Marks]
+
+Step 1: Package Structure
+
+banking/
+    __init__.py
+    account.py
+    loan.py
+
+
+---
+
+Step 2: account.py
+
+# account.py
+
+def open_account(name):
+    print("Account created successfully for", name)
+
+
+---
+
+Step 3: loan.py
+
+# loan.py
+
+def apply_loan(amount):
+    print("Loan applied successfully for amount:", amount)
+
+
+---
+
+Step 4: Main Program
+
+# main.py
+
+from banking import account, loan
+
+name = input("Enter your name: ")
+amount = float(input("Enter loan amount: "))
+
+account.open_account(name)
+loan.apply_loan(amount)
+
+
+---
+
+If you want, I can make a **last-minute revision PDF (all important programs + patterns)** so you can quickly revise before exam.
