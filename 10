@@ -1,0 +1,137 @@
+Here are clear, exam-ready solutions:
+
+
+---
+
+Q1. Write a python program to create a DataFrame from list of 10 integer values. Display contents of DataFrame and calculate sum, mean, median, mode, standard deviation.
+
+[10 Marks]
+
+# Q1 Solution
+
+import pandas as pd
+
+# Create list of 10 integers
+data = [10, 20, 30, 40, 50, 20, 30, 60, 70, 80]
+
+# Create DataFrame
+df = pd.DataFrame(data, columns=["Numbers"])
+
+# Display DataFrame
+print("DataFrame:\n", df)
+
+# Calculations
+print("\nSum =", df["Numbers"].sum())
+print("Mean =", df["Numbers"].mean())
+print("Median =", df["Numbers"].median())
+print("Mode =", df["Numbers"].mode()[0])
+print("Standard Deviation =", df["Numbers"].std())
+
+
+---
+
+Q2. Create a package finance_tools with modules interest.py and currency.py
+
+[20 Marks]
+
+Step 1: Package Structure
+
+finance_tools/
+    __init__.py
+    interest.py
+    currency.py
+
+
+---
+
+Step 2: interest.py
+
+# interest.py
+
+def cal_interest(amount, year):
+    rate = 0.05   # 5%
+    si = (amount * rate * year)
+    return si
+
+
+---
+
+Step 3: currency.py
+
+# currency.py
+
+def convert(amount):
+    rate = 0.012   # INR to USD
+    usd = amount * rate
+    return usd
+
+
+---
+
+Step 4: Main Program
+
+# main.py
+
+from finance_tools import interest, currency
+
+amount = float(input("Enter amount: "))
+year = int(input("Enter number of years: "))
+
+# Calculate interest
+si = interest.cal_interest(amount, year)
+print("Simple Interest =", si)
+
+# Convert currency
+usd = currency.convert(amount)
+print("Amount in USD =", usd)
+
+
+---
+
+OR
+
+Q2. Write a Python program to create a class that acts as an iterator and generates factorial series up to n (1! + 2! + ... + n!)
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+class FactorialSeries:
+    def __init__(self, n):
+        self.n = n
+        self.current = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current > self.n:
+            raise StopIteration
+
+        fact = 1
+        for i in range(1, self.current + 1):
+            fact *= i
+
+        result = fact
+        self.current += 1
+        return result
+
+
+# Input from user
+n = int(input("Enter value of n: "))
+
+fs = FactorialSeries(n)
+
+print("Factorial Series:")
+total = 0
+
+for val in fs:
+    print(val, end=" ")
+    total += val
+
+print("\nSum of series =", total)
+
+
+---
+
+If you want, I can make a **quick revision sheet (all programs in 2–3 pages)** for your exam preparation.
