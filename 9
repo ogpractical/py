@@ -1,0 +1,72 @@
+*slip 9*
+
+Q1. Write a python program to accepts a value of n and create a generator that yields even numbers up to n.
+
+n = int(input("Enter value of n: "))
+def even_numbers(n):
+    for i in range(2, n + 1, 2):
+        yield i
+print("Even numbers up to", n, "are:")
+for num in even_numbers(n):
+    print(num)
+
+
+Q2. Write a python program for following -        a) Create DataFrames Student 1, Student 2 and display contents b) Join the two DataFrames in third frame with matching records from both sides. c) Display Third DataFrame. 
+
+import pandas as pd
+
+Student1 = pd.DataFrame({
+    'ID': ['S1', 'S2', 'S3', 'S4', 'S5'],
+    'Name': ['Anita', 'Sakshi', 'Om', 'Raj', 'Kanika'],
+    'Age': [18, 23, 20, 21, 20]
+})
+
+Student2 = pd.DataFrame({
+    'ID': ['S2', 'S4', 'S5', 'S6', 'S7'],
+    'City': ['Pune', 'Nashik', 'Mumbai', 'Delhi', 'Nanded'],
+    'Marks': [97, 78, 86, 66, 54]
+})
+
+print("Student1 DataFrame:")
+print(Student1)
+
+print("\nStudent2 DataFrame:")
+print(Student2)
+
+# Join both DataFrames with matching records
+Student3 = pd.merge(Student1, Student2, on='ID', how='inner')
+
+# Display Third DataFrame
+print("\nStudent3 DataFrame:")
+print(Student3)
+
+
+*Or*
+
+Q2. Write a python program using user define function to accept a number and perform the following task: a) Check number is Armstrong or not. b) Calculate and display sum of digits till single digit [e.g. -  558 = 18 = 9]
+
+
+def armstrong(n):
+    temp = n
+    digits = len(str(n))
+    s = 0    
+    while temp > 0:
+        rem = temp % 10
+        s = s + (rem ** digits)
+        temp = temp // 10
+    if s == n:
+        print(n, "is Armstrong Number")
+    else:
+        print(n, "is Not Armstrong Number")
+def single_digit_sum(n):
+    while n >= 10:
+        s = 0
+        while n > 0:
+            rem = n % 10
+            s = s + rem
+            n = n // 10
+        n = s
+    print("Single Digit Sum =", n)
+num = int(input("Enter a number: "))
+armstrong(num)
+single_digit_sum(num)
