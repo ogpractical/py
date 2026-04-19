@@ -1,0 +1,108 @@
+Here are neat, exam-ready answers:
+
+
+---
+
+Q1. Create a data.csv file and display DataFrame with statistical information
+
+[10 Marks]
+
+Step 1: Create data.csv
+
+Name,Designation,Salary
+Amit,Manager,50000
+Ravi,Developer,40000
+Sneha,Analyst,35000
+Priya,HR,30000
+John,Tester,28000
+
+
+---
+
+Step 2: Python Program
+
+# Q1 Solution
+
+import pandas as pd
+
+# Read CSV file
+df = pd.read_csv("data.csv")
+
+# Display DataFrame
+print("DataFrame:\n")
+print(df)
+
+# Statistical information
+print("\nStatistical Information:\n")
+print(df.describe())
+
+
+---
+
+Q2. Write a Python program for time operations
+
+[20 Marks]
+
+# Q2 Solution
+
+import time
+from datetime import datetime
+
+# a) Current local time and UTC time
+local_time = datetime.now()
+utc_time = datetime.utcnow()
+
+print("Local Time:", local_time)
+print("UTC Time:", utc_time)
+
+# b) Using ctime() and gmtime()
+print("\nUsing ctime():", time.ctime())
+print("Using gmtime():", time.gmtime())
+
+# c) Accept date-time string
+dt_string = input("\nEnter date-time (DD-MM-YYYY HH:MM:SS): ")
+
+# d) Parse and format
+dt_object = datetime.strptime(dt_string, "%d-%m-%Y %H:%M:%S")
+
+# Format 1
+format1 = dt_object.strftime("%Y/%m/%d %H:%M:%S")
+
+# Format 2
+format2 = dt_object.strftime("%A, %d %B %Y %I:%M:%S %p")
+
+print("\nFormatted Date-Time 1:", format1)
+print("Formatted Date-Time 2:", format2)
+
+
+---
+
+OR
+
+Q2. Random elements from list, string and tuple
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+import random
+
+# Create sequence types
+my_list = [10, 20, 30, 40, 50]
+my_string = "PYTHONPROGRAM"
+my_tuple = (1, 2, 3, 4, 5, 6)
+
+# Display unique random elements
+print("Random elements from list:")
+print(random.sample(my_list, 3))
+
+print("\nRandom elements from string:")
+print(random.sample(my_string, 5))
+
+print("\nRandom elements from tuple:")
+print(random.sample(my_tuple, 3))
+
+
+---
+
+If you want, I can compile **all these solved papers into one PDF** for quick revision before your exam.
