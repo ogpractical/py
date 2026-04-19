@@ -1,0 +1,93 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Replace all occurrences of ‘a’ with ‘*’ in a string
+
+[10 Marks]
+
+# Q1 Solution
+
+string = input("Enter a string: ")
+
+# Replace 'a' with '*'
+modified = string.replace('a', '*').replace('A', '*')
+
+print("Modified string:")
+print(modified)
+
+
+---
+
+Q2. Program to calculate pass/fail status of students
+
+[20 Marks]
+
+# Q2 Solution
+
+# Function definition
+def check_pass_fail(marks):
+    return "Pass" if marks >= 40 else "Fail"
+
+# Input number of students
+n = int(input("Enter number of students: "))
+
+pass_count = 0
+fail_count = 0
+
+for i in range(n):
+    marks = int(input(f"Enter marks for student {i+1}: "))
+    
+    result = check_pass_fail(marks)
+    print(f"Student {i+1}: {result}")
+    
+    if result == "Pass":
+        pass_count += 1
+    else:
+        fail_count += 1
+
+print("\nTotal Passed:", pass_count)
+print("Total Failed:", fail_count)
+
+
+---
+
+OR
+
+Q2. Python program for time operations
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+import time
+from datetime import datetime
+
+# a) Current local and UTC time
+local_time = datetime.now()
+utc_time = datetime.utcnow()
+
+print("Local Time:", local_time)
+print("UTC Time:", utc_time)
+
+# b) Using ctime() and gmtime()
+print("\nUsing ctime():", time.ctime())
+print("Using gmtime():", time.gmtime())
+
+# c) Accept date-time string
+dt_string = input("\nEnter date-time (DD-MM-YYYY HH:MM:SS): ")
+
+# d) Parse and format
+dt_object = datetime.strptime(dt_string, "%d-%m-%Y %H:%M:%S")
+
+format1 = dt_object.strftime("%d/%m/%Y %H:%M")
+format2 = dt_object.strftime("%A, %B %d, %Y %I:%M:%S %p")
+
+print("\nFormatted Date-Time 1:", format1)
+print("Formatted Date-Time 2:", format2)
+
+
+---
+
+If you want, I can prepare a **super short “night before exam” revision list (only 15 programs you must know)**.
