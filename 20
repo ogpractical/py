@@ -1,0 +1,82 @@
+*slip 20*
+
+Q1. Write a python program to accept a string, Count total number of vowels, consonants and special symbols from it.
+
+str1 = input("Enter a string: ")
+vowels = 0
+consonants = 0
+special = 0
+for ch in str1:
+    if ch.isalpha():
+        if ch.lower() in 'aeiou':
+            vowels += 1
+        else:
+            consonants += 1
+    else:
+        special += 1
+print("Total Vowels =", vowels)
+print("Total Consonants =", consonants)
+print("Total Special Symbols =", special)
+
+
+
+Q2.  Write a Python program to accept a file name and a byte position as input. If file exist open a file in read mode and move the file pointer to the given byte position, prints the content of the file from that position till end of file otherwise give appropriate message.
+
+fname = input("Enter file name: ")
+pos = int(input("Enter byte position: "))
+try:
+    f = open(fname, "r")
+    f.seek(pos)              
+    data = f.read()          
+    print("File content from position", pos, ":")
+    print(data)
+    f.close()
+except FileNotFoundError:
+    print("File does not exist.")
+except:
+    print("Invalid input or error occurred.")
+
+
+
+*Or*
+
+
+Q2. Create a Pandas DataFrame using the following student data with columns and perform the following tasks:
+
+import pandas as pd
+data = {
+    'school': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
+    'class': ['S001', 'S002', 'S003', 'S004', 'S005', 'S006'],
+    'name': ['Asha', 'Fransis', 'Charlie', 'David', 'Shyam', 'Eashel'],
+    'date_of_birth': ['15/05/2002', '17/05/2002', '16/02/1999',
+                      '25/09/1998', '11/05/2002', '15/09/1997'],
+    'age': [12, 12, 13, 14, 12, 16],
+    'height': [173, 192, 186, 167, 151, 159],
+    'weight': [35, 32, 33, 30, 31, 32],
+    'address': ['Street1', 'Street2', 'Street3',
+                'Street4', 'Street5', 'Street6']
+}
+df = pd.DataFrame(data)
+print("Student DataFrame:")
+print(df)
+
+
+#a)Split the DataFrame into groups based on the school column using the GroupBy operation.
+
+grouped = df.groupby('school')
+#b) Check and display the type of the GroupBy object created.
+
+print("\nType of GroupBy Object:")
+print(type(grouped))
+
+
+#c) Calculate the mean, minimum, and maximum values of the age column for each school group.
+
+print("\nAge Statistics:")
+print(grouped['age'].agg(['mean', 'min', 'max']))
+
+
+#d) Count the number of students whose weight is greater than 32. 
+
+count = df[df['weight'] > 32]['weight'].count()
+print("\nNumber of students whose weight > 32:", count)
