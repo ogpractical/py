@@ -1,0 +1,94 @@
+*Slip 4*
+
+#Q1. Write a Python program to create a list of elements. Shuffle the elements of a given list and display the list. [Hint: Use random.shuffle()] 
+
+import random
+my_list = [10, 20, 30, 40, 50]
+print("Original List:", my_list)
+random.shuffle(my_list)
+print("Shuffled List:", my_list)
+
+
+#Q2. Create a following DataFrame named as “data”. Write the python code for the following commands. 
+
+data = {
+    'Item': ['Pencil', 'Pencil', 'Pen', 'Pen', 'Eraser'],
+    'Company': ['Apsara', 'Natraj', 'Cello', 'Parkar', 'Apsara'],
+    'Count': [15, 20, 25, 35, 20],
+    'Price': [250, 200, 600, 900, 300]
+}
+df = pd.DataFrame(data)
+df.set_index('Item', inplace=True)
+print("Original DataFrame:")
+print(df)
+
+
+a) Find all rows with the label “Pencil”. Extract all columns
+
+print("\n(a) Rows with label Pencil:")
+print(df.loc['Pencil'])
+
+
+b) Change the Eraser count as 25 instead of 20. 
+
+df.loc['Eraser', 'Count'] = 25
+print("\n(b) After changing Eraser count:")
+print(df)
+
+
+#c)List only the columns Company and Price. 
+
+print("\n(c) Company and Price columns:")
+print(df[['Company', 'Price']])
+
+
+d) List only rows with labels ‘Pencil’ and ‘Pen’ 
+
+print("\n(d) Rows with labels Pencil and Pen:")
+print(df.loc[['Pencil', 'Pen']])
+
+
+e) Rename Column Count as Quantity and display DataFrame. 
+
+df.rename(columns={'Count': 'Quantity'}, inplace=True)
+print("\n(e) After renaming Count to Quantity:")
+print(df)
+
+*Or*
+
+Q2.  Write a python program for following 
+
+a) Create a file which stores the first name, middle name and last name of your 5 friends  
+
+file = open("friends.txt", "w")
+file.write("Rahul Amit Patil\n")
+file.write("Rohan Sunil Shinde\n")
+file.write("Akash Vijay Jadhav\n")
+file.write("Sagar Raj Pawar\n")
+file.write("Kiran Manoj More\n")
+
+file.close()
+
+
+b) Display contents of file 
+print("Original File Contents:")
+
+with open("friends.txt", "r") as file:
+    print(file.read())
+
+
+c) Append other 5 friend’s names
+
+with open("friends.txt", "a") as file:
+    file.write("Om Prakash Kale\n")
+    file.write("Nitin Deepak Deshmukh\n")
+    file.write("Ajay Ramesh Joshi\n")
+    file.write("Vikas Suresh Patil\n")
+    file.write("Mahesh Anil Shaha\n")
+
+
+d)Display modified file contents  
+print("Modified File Contents:")
+
+with open("friends.txt", "r") as file:
+    print(file.read())
