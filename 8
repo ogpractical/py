@@ -1,0 +1,105 @@
+Here are neat, exam-ready answers:
+
+
+---
+
+Q1. Write a python program to accept value of radius from user and calculate the area of a circle using function. (Use 3.14 as π)
+
+[10 Marks]
+
+# Q1 Solution
+
+def area_of_circle(radius):
+    return 3.14 * radius * radius
+
+r = float(input("Enter radius: "))
+
+area = area_of_circle(r)
+
+print("Area of circle =", area)
+
+
+---
+
+Q2. Write a python program to create a list, string and tuple in python. Apply random module to display unique multiple random elements from above created sequence type.
+
+[20 Marks]
+
+# Q2 Solution
+
+import random
+
+# Create sequence types
+my_list = [10, 20, 30, 40, 50]
+my_string = "HELLOPYTHON"
+my_tuple = (1, 2, 3, 4, 5, 6)
+
+# Random unique elements
+print("Random elements from list:")
+print(random.sample(my_list, 3))
+
+print("\nRandom elements from string:")
+print(random.sample(my_string, 4))
+
+print("\nRandom elements from tuple:")
+print(random.sample(my_tuple, 3))
+
+
+---
+
+OR
+
+Q2. Create a Web Page using Flask which contains information about your college
+
+[20 Marks]
+
+Step 1: app.py
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    college_name = "ABC College"
+
+    courses = ["BSc Computer Science", "BCom", "BA", "BCA"]
+
+    return render_template("index.html",
+                           college_name=college_name,
+                           courses=courses)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+---
+
+Step 2: templates/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College</title>
+</head>
+<body>
+
+    <h1 style="text-align:center;">{{ college_name }}</h1>
+
+    <h2>Courses Available:</h2>
+    <ul>
+        {% for course in courses %}
+        <li>{{ course }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>College Image:</h2>
+    <img src="https://via.placeholder.com/300" alt="College Image">
+
+</body>
+</html>
+
+
+---
+
+If you want, I can also give more practice questions or combine all these into one revision sheet for exams.
