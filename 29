@@ -1,0 +1,83 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Create DataFrame from Iris.csv and display contents & statistics
+
+[10 Marks]
+
+# Q1 Solution
+
+import pandas as pd
+
+# Read CSV file
+df = pd.read_csv("Iris.csv")
+
+# Display DataFrame
+print("DataFrame:\n")
+print(df)
+
+# Statistical information
+print("\nStatistical Information:\n")
+print(df.describe())
+
+
+---
+
+Q2. Append string to file and display contents
+
+[20 Marks]
+
+# Q2 Solution
+
+filename = input("Enter file name: ")
+text = input("Enter text to append: ")
+
+try:
+    # Open file in append mode
+    with open(filename, 'a') as file:
+        file.write("\n" + text)
+
+    print("\nText appended successfully!\n")
+
+    # Display updated content
+    with open(filename, 'r') as file:
+        content = file.read()
+        print("Updated File Content:\n")
+        print(content)
+
+except FileNotFoundError:
+    print("Error: File does not exist!")
+
+
+---
+
+OR
+
+Q2. Validate mobile number based on given criteria
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+import re
+
+mobile = input("Enter mobile number: ")
+
+# Regex:
+# Optional 0 or 91 at start
+# First digit 6-9
+# Remaining 9 digits
+
+pattern = r'^(0|91)?[6-9][0-9]{9}$'
+
+if re.match(pattern, mobile):
+    print("Valid mobile number")
+else:
+    print("Invalid mobile number")
+
+
+---
+
+If you want, I can give you a “most repeated programs” list (very important before exam) so you can revise smartly.
