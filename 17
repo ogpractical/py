@@ -1,0 +1,94 @@
+Here are neat, exam-ready answers:
+
+
+---
+
+Q1. Replace spaces with colon and commas with dot in a string
+
+[10 Marks]
+
+# Q1 Solution
+
+string = input("Enter a string: ")
+
+# Replace space with ':' and comma with '.'
+modified = string.replace(" ", ":").replace(",", ".")
+
+print("Modified string:")
+print(modified)
+
+
+---
+
+Q2. Create list, string, tuple and display random unique elements
+
+[20 Marks]
+
+# Q2 Solution
+
+import random
+
+# Create sequence types
+my_list = [10, 20, 30, 40, 50]
+my_string = "COMPUTERSCIENCE"
+my_tuple = (1, 2, 3, 4, 5, 6, 7)
+
+# Random unique elements
+print("Random elements from list:")
+print(random.sample(my_list, 3))
+
+print("\nRandom elements from string:")
+print(random.sample(my_string, 5))
+
+print("\nRandom elements from tuple:")
+print(random.sample(my_tuple, 4))
+
+
+---
+
+OR
+
+Q2. Program using user-defined functions (Armstrong + sum of digits)
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+# Function to check Armstrong number
+def is_armstrong(num):
+    temp = num
+    digits = len(str(num))
+    sum_val = 0
+
+    while temp > 0:
+        digit = temp % 10
+        sum_val += digit ** digits
+        temp //= 10
+
+    return sum_val == num
+
+
+# Function to reduce number to single digit sum
+def sum_to_single_digit(num):
+    while num >= 10:
+        num = sum(int(d) for d in str(num))
+    return num
+
+
+# Input
+n = int(input("Enter a number: "))
+
+# Armstrong check
+if is_armstrong(n):
+    print("Number is Armstrong")
+else:
+    print("Number is NOT Armstrong")
+
+# Sum till single digit
+result = sum_to_single_digit(n)
+print("Sum till single digit:", result)
+
+
+---
+
+If you want, I can give a list of most repeated programs (very important for your exam).
