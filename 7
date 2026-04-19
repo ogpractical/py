@@ -1,0 +1,146 @@
+Here are clean, exam-ready answers:
+
+
+---
+
+Q1. Write a python program to accept a string, extract all words that start with a capital letter and remove all special characters from a string. Display modified string.
+
+[10 Marks]
+
+# Q1 Solution
+
+import re
+
+string = input("Enter a string: ")
+
+# Remove special characters (keep only letters and spaces)
+cleaned = re.sub(r'[^A-Za-z\s]', '', string)
+
+words = cleaned.split()
+
+# Extract words starting with capital letter
+capital_words = [word for word in words if word[0].isupper()]
+
+print("Modified string (without special characters):")
+print(cleaned)
+
+print("Words starting with capital letters:")
+print(capital_words)
+
+
+---
+
+Q2. Create a Web Page using Flask which contains Library Book List
+
+[20 Marks]
+
+Step 1: Install Flask
+
+pip install flask
+
+
+---
+
+Step 2: app.py
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    library_name = "My Library"
+
+    books = [
+        {"title": "Python Basics", "author": "John Doe"},
+        {"title": "Data Structures", "author": "Jane Smith"},
+        {"title": "Web Development", "author": "Alice Brown"}
+    ]
+
+    quote = "Reading is to the mind what exercise is to the body."
+
+    return render_template("index.html",
+                           library_name=library_name,
+                           books=books,
+                           quote=quote)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+---
+
+Step 3: templates/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library</title>
+</head>
+<body>
+
+    <h1>{{ library_name }}</h1>
+
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p style="color: blue;"><b>{{ quote }}</b></p>
+
+</body>
+</html>
+
+
+---
+
+OR
+
+Q2. Write a python program to copy contents of one file into another file and display details
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+source = input("Enter source file name: ")
+destination = input("Enter destination file name: ")
+
+try:
+    with open(source, 'r') as f1:
+        content = f1.read()
+
+    with open(destination, 'w') as f2:
+        f2.write(content)
+
+    print("\nFile copied successfully!\n")
+
+    # Display content of new file
+    with open(destination, 'r') as f2:
+        new_content = f2.read()
+        print("New File Contents:\n")
+        print(new_content)
+
+        # Counts
+        char_count = len(new_content)
+        word_count = len(new_content.split())
+        line_count = new_content.count('\n') + 1
+
+        print("\nNumber of characters:", char_count)
+        print("Number of words:", word_count)
+        print("Number of lines:", line_count)
+
+except FileNotFoundError:
+    print("Error: Source file does not exist!")
+
+
+---
+
+If you want, I can also give diagram of Flask working or short notes for theory questions.
