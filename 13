@@ -1,0 +1,61 @@
+*slip 13*
+
+Q1. Write a Python program to get the current time and demonstrate the following functions from the time module:             a) Convert the current time in seconds to a readable string b) Converts time in seconds to a struct_time in UTC
+
+import time
+current_time = time.time()
+print("Current Time in Seconds:", current_time)
+
+# a) Convert current time in seconds to readable string
+readable_time = time.ctime(current_time)
+print("Readable Time String:", readable_time)
+
+# b) Convert time in seconds to struct_time in UTC
+utc_time = time.gmtime(current_time)
+print("UTC struct_time:", utc_time)
+
+
+Q2. Write a Python program that prompts the user to enter a text file name. If the file exists, open it in read mode, display its contents line by line, and show the current file pointer position after each line using ftell(). Then move the file pointer back to the beginning using seek() and display the file content again. If the file does not exist, display an appropriate error message.
+
+filename = input("Enter text file name: ")
+try:
+    file = open(filename, "r")
+    print("File Contents Line by Line:\n")
+    for line in file:
+        print(line.strip())
+        print("File Pointer Position:", file.tell())
+    file.seek(0)
+    print("\nAfter using seek(), File Content Again:\n")
+    for line in file:
+        print(line.strip())
+    file.close()
+except FileNotFoundError:
+    print("Error: File does not exist.")                                                                                        *or*                                                                                                                              #Q2. Write a python program for following -        a) Create DataFrames Student 1, Student 2 and display contents b) Join the two DataFrames in third frame with matching records from both sides. c) Display Content of Third DataFrame.
+
+import pandas as pd
+
+# a) Create DataFrames Student1 and Student2
+student1 = pd.DataFrame({
+    'ID': ['S1', 'S2', 'S3', 'S4', 'S5'],
+    'Name': ['Anita', 'Sakshi', 'Om', 'Raj', 'Kanika'],
+    'Age': [18, 23, 20, 21, 20]
+})
+
+student2 = pd.DataFrame({
+    'ID': ['S2', 'S4', 'S5', 'S6', 'S7'],
+    'City': ['Pune', 'Nashik', 'Mumbai', 'Delhi', 'Nanded'],
+    'Marks': [97, 78, 86, 66, 54]
+})
+
+print("Student 1 DataFrame:")
+print(student1)
+
+print("\nStudent 2 DataFrame:")
+print(student2)
+
+# b) Join both DataFrames with matching records
+student3 = pd.merge(student1, student2, on='ID', how='inner')
+
+# c) Display Third DataFrame
+print("\nStudent 3 DataFrame (Joined Data):")
+print(student3)
