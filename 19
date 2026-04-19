@@ -1,0 +1,93 @@
+Slip 19
+
+
+Q1. Write a Python program to shuffle a deck of card. Display the cards obtained by a user in 5 attempts.
+
+import random
+suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10',
+         'Jack', 'Queen', 'King', 'Ace']
+deck = []
+for suit in suits:
+    for rank in ranks:
+        deck.append(rank + " of " + suit)
+random.shuffle(deck)
+print("Cards obtained by user in 5 attempts:")
+for i in range(5):
+    print("Attempt", i+1, ":", deck[i])
+
+
+
+Q2. Write a python program to display all entries in a current directory and identify each as file or folder. [Use getcwd() function to retrieve current directory]  
+
+import os
+
+# Get current working directory
+path = os.getcwd()
+
+print("Current Directory:", path)
+
+# Display all entries
+entries = os.listdir(path)
+
+for item in entries:
+    if os.path.isfile(item):
+        print(item, "- File")
+    elif os.path.isdir(item):
+        print(item, "- Folder")
+
+
+Or
+
+
+Q2. Consider a following record in Data frame ipl 
+
+Import pandas as pd
+Import numpy as no
+
+IPL = pd.DataFrame({
+'Player': ['Hardik Pandya', 'K L Rahul', 'Andre Russel',
+'Jasprit Bumrah', 'Virat Kohli', 'Rohit Sharma'],
+
+'Team': ['Mumbai Indians', 'Kings Eleven', 'Kolkata Knight Riders',  
+         'Mumbai Indians', 'RCB', 'Mumbai Indians'],  
+  
+'Category': ['Batsman', 'Batsman', 'Batsman',  
+             'Bowler', 'Batsman', 'Batsman'],  
+  
+'BidPrice': [np.nan, 1000, 2400, 900, 3700, np.nan],  
+  
+'Runs': [12, 7, 10, np.nan, np.nan, 15]
+
+})
+
+print("IPL DataFrame:")
+print(IPL)        
+
+
+a) Retrieve first 2 rows
+print("\nFirst 2 Rows:")
+print(IPL.head(2))         
+
+b) Retrieve last 3 rows
+print("\nLast 3 Rows:")
+print(IPL.tail(3))            
+
+c) Check null values in DataFrame
+print("\nNull Values:")
+print(IPL.isnull())
+
+d) Replace null values with mean of that column
+IPL['BidPrice'].fillna(IPL['BidPrice'].mean(), inplace=True)
+IPL['Runs'].fillna(IPL['Runs'].mean(), inplace=True)
+
+print("\nDataFrame after replacing null values:")
+print(IPL)
+
+e) Find most expensive player
+print("\nMost Expensive Player:")
+print(IPL.loc[IPL['BidPrice'].idxmax()])
+
+f) Print total players per team
+print("\nTotal Players Per Team:")
+print(IPL['Team'].value_counts())
