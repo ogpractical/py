@@ -1,0 +1,89 @@
+Slip 16
+
+Q1. Write a Python program using regular expressions to validate whether a given string matches the pattern of three-letter words such as bit, but, bat, hit, hut, hat.     
+
+import re
+word = input("Enter a word: ")
+pattern = "^[bh][iau]t$"
+if re.match(pattern, word):
+    print("Valid word")
+else:
+    print("Invalid word")
+
+
+Q2. Consider a following record in DataFrame IPL  
+
+import pandas as pd
+import numpy as np
+IPL = pd.DataFrame({
+    'Player': ['Hardik Pandya', 'K L Rahul', 'Andre Russel',
+               'Jasprit Bumrah', 'Virat Kohli', 'Rohit Sharma'],
+    
+    'Team': ['Mumbai Indians', 'Kings Eleven', 'Kolkata Knight Riders',
+             'Mumbai Indians', 'RCB', 'Mumbai Indians'],
+    
+    'Category': ['Batsman', 'Batsman', 'Batsman',
+                 'Bowler', 'Batsman', 'Batsman'],
+    
+    'BidPrice': [13, 12, 7, 10, 17, 15],
+    
+    'Runs': [1000, 2400, 900, 200, 3600, 3700]
+})
+
+print("IPL DataFrame:")
+print(IPL)
+
+
+a) Retrieve first 2 rows
+
+print("\nFirst 2 Rows:")
+print(IPL.head(2))
+
+
+b) Retrieve last 3 rows
+
+print("\nLast 3 Rows:")
+print(IPL.tail(3))
+
+
+c) Add null values in DataFrame
+
+IPL.loc[2, 'Runs'] = np.nan
+IPL.loc[4, 'Team'] = np.nan
+
+
+d) Find most expensive player. 
+
+print("\nMost Expensive Player:")
+print(IPL[IPL['BidPrice'] == IPL['BidPrice'].max()])
+
+
+e) Print total players per team. 
+
+print("\nTotal Players Per Team:")
+print(IPL['Team'].value_counts())
+
+
+
+Or
+
+
+Q2. Create a package vehicle with a sub package types, sub package type contains modules cars and bikes. Each module should have a function available_models() returning a list of models. Write a python program to display all available models of cars and bikes.
+
+# cars.py
+def available_models():
+    return ["Swift", "Baleno", "Creta", "Fortuner"]
+
+# bikes.py
+def available_models():
+    return ["Splendor", "Pulsar", "Activa", "Apache"]
+
+
+# main.py
+from vehicle.types import cars, bikes
+
+print("Available Car Models:")
+print(cars.available_models())
+
+print("\nAvailable Bike Models:")
+print(bikes.available_models())
