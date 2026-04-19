@@ -1,0 +1,106 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Validate three-letter word pattern using Regular Expressions
+
+[10 Marks]
+
+# Q1 Solution
+
+import re
+
+string = input("Enter a word: ")
+
+# Pattern: first letter c or m, second letter vowel, third letter t or d
+pattern = r'^[cm][aeou][td]$'
+
+if re.match(pattern, string):
+    print("Valid pattern (matches given examples)")
+else:
+    print("Invalid pattern")
+
+
+---
+
+Q2. Create package education with subpackage courses
+
+[20 Marks]
+
+Step 1: Package Structure
+
+education/
+    __init__.py
+    courses/
+        __init__.py
+        science.py
+        arts.py
+
+
+---
+
+Step 2: science.py
+
+# science.py
+
+def get_subjects():
+    return ["Physics", "Chemistry", "Biology"]
+
+
+---
+
+Step 3: arts.py
+
+# arts.py
+
+def get_subjects():
+    return ["History", "Geography", "Political Science"]
+
+
+---
+
+Step 4: Main Program
+
+# main.py
+
+from education.courses import science, arts
+
+print("Science Subjects:")
+print(science.get_subjects())
+
+print("\nArts Subjects:")
+print(arts.get_subjects())
+
+
+---
+
+OR
+
+Q2. Display all entries in current directory and identify file or folder
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+import os
+
+# Get current directory
+path = os.getcwd()
+print("Current Directory:", path)
+
+# List entries
+entries = os.listdir(path)
+
+print("\nDirectory Contents:\n")
+
+for entry in entries:
+    if os.path.isfile(entry):
+        print(entry, "- File")
+    elif os.path.isdir(entry):
+        print(entry, "- Folder")
+
+
+---
+
+If you want, I can give you a final revision list of regex patterns (very scoring topic).
