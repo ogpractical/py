@@ -1,0 +1,113 @@
+Here are clean, exam-ready solutions:
+
+
+---
+
+Q1. Shuffle a deck of cards and display 5 attempts
+
+[10 Marks]
+
+# Q1 Solution
+
+import random
+
+# Create a deck of cards
+suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10',
+         'Jack', 'Queen', 'King', 'Ace']
+
+deck = [(rank, suit) for suit in suits for rank in ranks]
+
+# Shuffle deck
+random.shuffle(deck)
+
+# Display 5 cards (attempts)
+print("Cards drawn in 5 attempts:\n")
+
+for i in range(5):
+    card = deck[i]
+    print(f"Attempt {i+1}: {card[0]} of {card[1]}")
+
+
+---
+
+Q2. Create package finance_tools with interest and currency modules
+
+[20 Marks]
+
+Step 1: Package Structure
+
+finance_tools/
+    __init__.py
+    interest.py
+    currency.py
+
+
+---
+
+Step 2: interest.py
+
+# interest.py
+
+def cal_interest(amount, year):
+    rate = 0.05
+    return amount * rate * year
+
+
+---
+
+Step 3: currency.py
+
+# currency.py
+
+def convert(amount):
+    rate = 0.012
+    return amount * rate
+
+
+---
+
+Step 4: Main Program
+
+# main.py
+
+from finance_tools import interest, currency
+
+amount = float(input("Enter amount: "))
+year = int(input("Enter years: "))
+
+# Interest calculation
+si = interest.cal_interest(amount, year)
+print("Simple Interest =", si)
+
+# Currency conversion
+usd = currency.convert(amount)
+print("Amount in USD =", usd)
+
+
+---
+
+OR
+
+Q2. Check whether a given URL is valid or not
+
+[20 Marks]
+
+# Q2 Alternative Solution
+
+import re
+
+url = input("Enter URL: ")
+
+# Regex pattern for validation
+pattern = r'^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}'
+
+if re.match(pattern, url):
+    print("Valid URL")
+else:
+    print("Invalid URL")
+
+
+---
+
+If you want, I can give a final expected question paper (very high probability) based on all these questions.
