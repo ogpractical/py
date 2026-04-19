@@ -1,0 +1,110 @@
+Here are clean, exam-ready answers 👇
+
+
+---
+
+Q1. Write Python code to create a dictionary containing mobile names and their prices. Create DataFrame from this dictionary. Display the contents of DataFrame.
+
+[10 Marks]
+
+# Import pandas library
+import pandas as pd
+
+# Create dictionary
+mobiles = {
+    "Mobile_Name": ["iPhone 14", "Samsung Galaxy S23", "OnePlus 11", "Redmi Note 12"],
+    "Price": [80000, 75000, 60000, 20000]
+}
+
+# Create DataFrame
+df = pd.DataFrame(mobiles)
+
+# Display DataFrame
+print("Mobile Data:")
+print(df)
+
+
+---
+
+Q2. Create a package vehicle with a sub package types, sub package type contains modules cars and bikes. Each module should have a function available_models() returning a list of models. Write a python program to display all available models of cars and bikes.
+
+[20 Marks]
+
+Step 1: Directory Structure
+
+vehicle/
+    __init__.py
+    types/
+        __init__.py
+        cars.py
+        bikes.py
+main.py
+
+
+---
+
+Step 2: cars.py
+
+def available_models():
+    return ["Toyota", "Honda City", "BMW", "Audi"]
+
+
+---
+
+Step 3: bikes.py
+
+def available_models():
+    return ["Yamaha", "Royal Enfield", "KTM", "Bajaj Pulsar"]
+
+
+---
+
+Step 4: main.py
+
+from vehicle.types import cars
+from vehicle.types import bikes
+
+# Display car models
+print("Available Car Models:")
+print(cars.available_models())
+
+# Display bike models
+print("\nAvailable Bike Models:")
+print(bikes.available_models())
+
+
+---
+
+OR
+
+Q2. Write a python program to list all files in a current directory. Display total count of .py files and content of any one .py file.
+
+import os
+
+# Get current directory
+current_dir = os.getcwd()
+
+# List all files
+files = os.listdir(current_dir)
+
+print("All Files:")
+print(files)
+
+# Filter .py files
+py_files = [file for file in files if file.endswith(".py")]
+
+# Count .py files
+print("\nTotal .py files:", len(py_files))
+
+# Display content of one .py file
+if py_files:
+    print("\nContent of file:", py_files[0])
+    with open(py_files[0], 'r') as f:
+        print(f.read())
+else:
+    print("No .py files found.")
+
+
+---
+
+If you want, I can also format this exactly like a **written practical answer (with headings + explanation)** so you can copy it directly in exams.
